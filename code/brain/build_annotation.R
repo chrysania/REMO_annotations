@@ -5,12 +5,12 @@ source("../utilities.R")
 
 load_atac <- function(
     chromosome,
-    adult_brain = "scATAC_atlas/data/brain/cpeak_cre/chr/"
+    adult_brain = "~/scratch/MetaPeak/scATAC_atlas/data/brain/cpeak_cre/chr/"
 ) {
     # adult brain
     brain <- t(read.table(paste0(adult_brain, chromosome, ".csv.gz"), sep = ","))
     colnames(brain) <- readLines(paste0(adult_brain, chromosome, "_colnames.txt"))
-    rownames(brain) <- readLines("scATAC_atlas/data/brain/cpeak_cre/matrix/scatac_rownames.txt")
+    rownames(brain) <- readLines("~/scratch/MetaPeak/scATAC_atlas/data/brain/cpeak_cre/matrix/scatac_rownames.txt")
     rownames(brain) <- paste0("BRAIN_", rownames(brain))
 
     return(brain)
